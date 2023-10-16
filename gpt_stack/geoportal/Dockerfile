@@ -1,4 +1,4 @@
-FROM maven:3-jdk-8 AS gptbuild
+FROM maven:3-jdk-11 AS gptbuild
 
 LABEL maintainer="Joachim Nennen j.nennen@rateestate.de"
 
@@ -21,7 +21,7 @@ WORKDIR /tmp
 RUN git clone ${GPTGITURL} geoportal-server-catalog
 WORKDIR /tmp/geoportal-server-catalog/geoportal/src/main/resources/config
 #ENV HARVESTER_CONFIG_DIR=/tmp/harvester/geoportal-application/geoportal-harvester-war/src/main/resources/config/
-COPY config/geoportal/ .
+#COPY config/geoportal/ .
 #COPY config/harvester/app-security_harvester.xml app-security.xml
 #RUN ls -al /tmp/geoportal-server-catalog/geoportal/src/main/resources/config/
 WORKDIR /tmp/geoportal-server-catalog/geoportal
@@ -34,7 +34,7 @@ WORKDIR /tmp
 RUN git clone ${HRVGITURL} harvester
 WORKDIR /tmp/harvester/geoportal-application/geoportal-harvester-war/src/main/resources/config
 #ENV HARVESTER_CONFIG_DIR=/tmp/harvester/geoportal-application/geoportal-harvester-war/src/main/resources/config/
-COPY config/harvester/ .
+#COPY config/harvester/ .
 #COPY config/harvester/app-security_harvester.xml app-security.xml
 #RUN ls -al /tmp/harvester/geoportal-application/geoportal-harvester-war/src/main/resources/config/
 WORKDIR /tmp/harvester/
@@ -45,7 +45,7 @@ WORKDIR $CATALINA_HOME/webapps/
 #######################
 # just tomcat
 #######################
-FROM tomcat:9-jre8
+FROM tomcat:9-jre11
 
 RUN apt-get update \
  && apt-get install -y -q --no-install-recommends \
