@@ -13,7 +13,7 @@ It has been enchanced by
  
 Clone the repository to your local drive. In order to build the containers and run them, use the following commands:
 ```bash
-$ git clone https://github.com/necrosky90/geoportal-server-catalog-2.7.0-docker.git
+$ git clone https://github.com/jne-rateestate/geoportal-server-catalog-2.7.0-docker.git
 $ cd geoportal-server-catalog-2.7.0-docker/gpt_stack
 $ docker network create datastudio
 $ docker-compose build
